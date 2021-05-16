@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: ["http://localhost:3000", "https://mia-webapp.vercel.app"],
+  origin: "https://mia-webapp.vercel.app",
   optionsSuccessStatus: 200,
 };
 app.use(Cors(corsOptions));
