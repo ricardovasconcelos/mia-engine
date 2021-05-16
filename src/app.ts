@@ -1,15 +1,20 @@
-import dotenv from 'dotenv'
-import 'reflect-metadata'
-import express from 'express'
-import { router } from './routes'
-import Cors from 'cors'
+import dotenv from "dotenv";
+import "reflect-metadata";
+import express from "express";
+import { router } from "./routes";
+import Cors from "cors";
 
-import './database'
+import "./database";
 dotenv.config();
 
-const app = express()
-app.use(Cors)
-app.use(express.json())
-app.use(router)
+const app = express();
 
-export { app }
+const corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 200,
+};
+app.use(Cors(corsOptions));
+app.use(express.json());
+app.use(router);
+
+export { app };
